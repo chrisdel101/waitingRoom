@@ -1,12 +1,12 @@
-defmodule WaitingRoom.Users do
+defmodule WaitingRoom.Patient do
   @moduledoc """
-  The Users context.
+  The Patient context.
   """
 
   import Ecto.Query, warn: false
   alias WaitingRoom.Repo
 
-  alias WaitingRoom.Users.User
+  alias WaitingRoom.Patient.User
 
   @doc """
   Returns the list of users.

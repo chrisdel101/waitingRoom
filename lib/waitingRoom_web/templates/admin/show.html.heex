@@ -1,0 +1,33 @@
+<h1>Show Admin</h1>
+
+<ul>
+
+  <li>
+    <strong>Id:</strong>
+    <%= @admin.id %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @admin.last_name %>
+  </li>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @admin.first_name %>
+  </li>
+
+  <li>
+    <strong>Role:</strong>
+    <%= @admin.role %>
+  </li>
+
+  <li>
+    <strong>Date created:</strong>
+    <%= @admin.date_created %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.admin_path(@conn, :edit, @admin) %></span> |
+<span><%= link "Back", to: Routes.admin_path(@conn, :index) %></span>

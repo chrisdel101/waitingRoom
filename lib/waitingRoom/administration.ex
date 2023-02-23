@@ -1,12 +1,12 @@
-defmodule WaitingRoom.Admins do
+defmodule WaitingRoom.Administration do
   @moduledoc """
-  The Admins context.
+  The Administration context.
   """
 
   import Ecto.Query, warn: false
   alias WaitingRoom.Repo
 
-  alias WaitingRoom.Admins.Admin
+  alias WaitingRoom.Administration.Admin
 
   @doc """
   Returns the list of admins.

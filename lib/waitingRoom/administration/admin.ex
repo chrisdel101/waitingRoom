@@ -1,4 +1,4 @@
-defmodule WaitingRoom.Admins.Admin do
+defmodule WaitingRoom.Administration.Admin do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -6,8 +6,10 @@ defmodule WaitingRoom.Admins.Admin do
     field :date_created, :date
     field :first_name, :string
     field :last_name, :string
-    field :role, :integer
-
+    field :role, Ecto.Enum, values:
+      [owner: 1, developer: 2, admin: 3, editor: 4, contributor: 5, viewer: 6]
+    has_many :users, User
+    has_many :alerts, Alert
     timestamps()
   end
 
