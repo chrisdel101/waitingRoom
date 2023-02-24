@@ -8,7 +8,9 @@ defmodule WaitingRoom.Administration.Admin do
     field :last_name, :string
     field :role, Ecto.Enum, values:
       [owner: 1, developer: 2, admin: 3, editor: 4, contributor: 5, viewer: 6]
+    # creates users
     has_many :users, User
+    # sends alerts
     has_many :alerts, Alert
     timestamps()
   end

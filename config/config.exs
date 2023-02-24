@@ -7,6 +7,12 @@
 # General application configuration
 import Config
 
+config :waitingRoom, WaitingRoom.Repo,
+  database: "waitingRoom_repo",
+  username: "user",
+  password: "pass",
+  hostname: "localhost"
+
 config :waitingRoom,
   ecto_repos: [WaitingRoom.Repo]
 
