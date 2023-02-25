@@ -3,22 +3,26 @@ defmodule WaitingRoom.Administration.Admin do
   import Ecto.Changeset
 
   schema "admins" do
-    field :date_created, :date
     field :first_name, :string
     field :last_name, :string
+    # must be added as atom
     field :role, Ecto.Enum, values:
       [owner: 1, developer: 2, admin: 3, editor: 4, contributor: 5, viewer: 6]
     # creates users
-    has_many :users, User
+    has_many :users, WaitingRoom.Patient.User
     # sends alerts
-    has_many :alerts, Alert
+    has_many :alerts, WaitingRoom.Alert
     timestamps()
   end
+
+  # TODO#
+  # - login, logout
+
 
   @doc false
   def changeset(admin, attrs) do
     admin
-    |> cast(attrs, [:last_name, :first_name, :role, :date_created])
-    |> validate_required([:last_name, :first_name, :role, :date_created])
+    |> cast(attrs, [:last_name, :first_name, :role])
+    |> validate_required([:last_name, :first_name, :role])
   end
 end
