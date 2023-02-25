@@ -3,9 +3,9 @@ defmodule WaitingRoomWeb.AdminControllerTest do
 
   import WaitingRoom.AdministrationFixtures
 
-  @create_attrs %{date_created: ~D[2023-02-22], first_name: "some first_name", id: 42, last_name: "some last_name", role: 42}
-  @update_attrs %{date_created: ~D[2023-02-23], first_name: "some updated first_name", id: 43, last_name: "some updated last_name", role: 43}
-  @invalid_attrs %{date_created: nil, first_name: nil, id: nil, last_name: nil, role: nil}
+  @create_attrs %{health_number: 42, last_name: "some last_name", phone: 42}
+  @update_attrs %{health_number: 43, last_name: "some updated last_name", phone: 43}
+  @invalid_attrs %{health_number: nil, last_name: nil, phone: nil}
 
   describe "index" do
     test "lists all admins", %{conn: conn} do
@@ -55,7 +55,7 @@ defmodule WaitingRoomWeb.AdminControllerTest do
       assert redirected_to(conn) == Routes.admin_path(conn, :show, admin)
 
       conn = get(conn, Routes.admin_path(conn, :show, admin))
-      assert html_response(conn, 200) =~ "some updated first_name"
+      assert html_response(conn, 200) =~ "some updated last_name"
     end
 
     test "renders errors when data is invalid", %{conn: conn, admin: admin} do

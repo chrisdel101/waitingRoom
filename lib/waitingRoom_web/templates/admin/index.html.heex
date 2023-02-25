@@ -3,11 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th>Id</th>
+      <th>First Name</th>
       <th>Last name</th>
-      <th>First name</th>
       <th>Role</th>
-      <th>Date created</th>
 
       <th></th>
     </tr>
@@ -15,11 +13,9 @@
   <tbody>
 <%= for admin <- @admins do %>
     <tr>
-      <td><%= admin.id %></td>
       <td><%= admin.last_name %></td>
       <td><%= admin.first_name %></td>
       <td><%= admin.role %></td>
-      <td><%= admin.date_created %></td>
 
       <td>
         <span><%= link "Show", to: Routes.admin_path(@conn, :show, admin) %></span>

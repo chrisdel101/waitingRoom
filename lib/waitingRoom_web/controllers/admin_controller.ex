@@ -9,10 +9,13 @@ defmodule WaitingRoomWeb.AdminController do
     render(conn, "index.html", admins: admins)
   end
 
-  def new(conn, _params) do
-    changeset = Administration.change_admin(%Admin{})
-    render(conn, "new.html", changeset: changeset)
-  end
+    def new(conn, _params) do
+      changeset = Administration.change_admin(%Admin{})
+
+      admin_roles = [1,2,3]
+
+      render(conn, "new.html", changeset: changeset, admin_roles: admin_roles)
+    end
 
   def create(conn, %{"admin" => admin_params}) do
     case Administration.create_admin(admin_params) do
