@@ -4,8 +4,8 @@ defmodule WaitingRoom.Alert do
 
   schema "alerts" do
     field :active, :boolean
-    belongs_to :user_id, WaitingRoom.Patient.User
-    belongs_to :admin_id, WaitingRoom.Administration.Admin
+    belongs_to :user, WaitingRoom.Patient.User
+    belongs_to :admin, WaitingRoom.Administration.Admin
     field :alert_type, Ecto.Enum, values: [initial: 1, confirmation: 2, req_for_conf: 3, cancellation: 4, change: 5]
     timestamps()
   end

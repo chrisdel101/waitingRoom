@@ -7,7 +7,7 @@ defmodule WaitingRoom.Patient.User do
     field :last_name, :string
     field :health_number, :integer
     field :phone, :integer
-    belongs_to :admin_id, WaitingRoom.Administration.Admin
+    belongs_to :admin, WaitingRoom.Administration.Admin
     has_many :alerts, WaitingRoom.Alert
     timestamps()
   end
@@ -16,8 +16,7 @@ defmodule WaitingRoom.Patient.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:first_name, :last_name, :health_number, :phone])
-    # |> cast_assoc(:admin_id)
     |> validate_required(
-      [:first_name, :last_name, :health_number, :admin_id])
+      [:first_name, :last_name, :health_number])
   end
 end

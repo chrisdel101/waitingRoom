@@ -7,6 +7,8 @@ defmodule WaitingRoom.Repo.Migrations.CreateAlert do
       add :alert_type, :integer
       add :user_id, references(:users)
       add :admin_id, references(:admins)
+      timestamps()
+
     end
   end
 end

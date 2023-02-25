@@ -6,6 +6,7 @@ defmodule WaitingRoom.Repo.Migrations.CreateAdmin do
       add :first_name, :string
       add :last_name, :string
       add :role, :integer
+      timestamps()
     end
   end
 end

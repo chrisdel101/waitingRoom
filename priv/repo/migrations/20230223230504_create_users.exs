@@ -8,6 +8,8 @@ defmodule WaitingRoom.Repo.Migrations.CreateUser do
         add :health_number, :integer
         add :phone, :integer
         add :admin_id, references(:admins)
+        timestamps()
+
     end
   end
 end
