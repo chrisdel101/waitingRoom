@@ -1,6 +1,7 @@
 defmodule WaitingRoom.Repo.Migrations.CreateAlert do
   use Ecto.Migration
 
+  # user does not need email to use basic apply
   def change do
     create table(:alerts) do
       add :active, :boolean

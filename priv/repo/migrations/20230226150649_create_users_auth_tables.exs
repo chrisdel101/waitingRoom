@@ -1,12 +1,13 @@
 defmodule WaitingRoom.Repo.Migrations.CreateUsersAuthTables do
   use Ecto.Migration
 
+  # when creating an account, then user needs to register
   def change do
     execute "CREATE EXTENSION IF NOT EXISTS citext", ""
 
     alter table(:users) do
-      add :email, :citext, null: false
-      add :hashed_password, :string, null: false
+      add :email, :citext, null: true
+      add :hashed_password, :string, null: true
       add :confirmed_at, :naive_datetime
     end
 
