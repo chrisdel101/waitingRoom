@@ -32,6 +32,7 @@ defmodule WaitingRoom.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 3.0"},
       {:ecto_enum, "~> 1.4"},
       {:phoenix, "~> 1.6.16"},
       {:phoenix_ecto, "~> 4.4"},
