@@ -9,14 +9,16 @@ defmodule WaitingRoomWeb.AdminController do
     render(conn, "index.html", admins: admins)
   end
 
+  def enum_options_for(module) do
+    Enum.map(module.__enum_map__(), fn {e, _n} -> to_string(e) end)
+  end
     def new(conn, _params) do
       changeset = Administration.change_admin(%Admin{})
 
-      admin_roles = [1,2,3]
-
-      render(conn, "new.html", changeset: changeset, admin_roles: admin_roles)
+      render(conn, "new.html", changeset: changeset)
     end
 
+  @spec create(Plug.Conn.t(), map) :: Plug.Conn.t()
   def create(conn, %{"admin" => admin_params}) do
     case Administration.create_admin(admin_params) do
       {:ok, admin} ->

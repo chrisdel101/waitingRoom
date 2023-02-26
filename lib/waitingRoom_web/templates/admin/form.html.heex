@@ -11,10 +11,10 @@
   <%= label f, :last_name %>
   <%= text_input f, :last_name %>
   <%= error_tag f, :last_name %>
-  <%= @admin_roles %>
 
 
-  <%= select f, :role, @admin_roles, prompt: "Choose Role"%>
+  <%= select f, :role, AdminRolesEnum.__enum_map__ |> Enum.map(fn x -> Atom.to_string(x) end), prompt: "Choose Role"
+%>
   <%= label f, :role %>
   <%= number_input f, :role %>
   <%= error_tag f, :role %>
